@@ -1,0 +1,58 @@
+buildscript {
+    repositories {
+        maven {
+            url 'https://maven.aliyun.com/repository/public'
+        }
+//        mavenCentral() // If you are not in China, use the warehouse you need, Maven central or jcenter
+    }
+}
+
+plugins {
+    id 'com.github.johnrengelman.shadow' version '6.1.0'
+    id 'java'
+    id 'org.openjfx.javafxplugin' version '0.0.9'
+    id 'org.jetbrains.kotlin.jvm' version '1.4.10'
+}
+
+apply plugin: 'application'
+
+repositories {
+    maven {
+        url 'https://maven.aliyun.com/repository/public'
+    }
+    //        mavenCentral() // If you are not in China, use the warehouse you need, Maven central or jcenter
+}
+
+// package configs
+group 'top.kikt'
+version '1.0-SNAPSHOT'
+mainClassName = 'top.kikt.tornadofx.AppKt' // your main class
+
+javafx {
+    version = "11.0.2"
+    modules = ['javafx.controls'] // If you use java 11 or higher, you must config your javafx modules.
+}
+
+shadowJar { //
+    archiveBaseName.set('TornadoFx') // Your shadow jar name
+    archiveClassifier.set('')
+    archiveVersion.set('')
+    minimize()
+}
+
+compileKotlin {
+    kotlinOptions {
+        jvmTarget = 1.8
+        apiVersion = 1.4
+    }
+}
+
+dependencies {
+    def ktVersion = "1.4.10"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$ktVersion"
+    implementation("org.jetbrains.kotlin:kotlin-reflect:$ktVersion")
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    implementation('no.tornado:tornadofx:1.7.20') {
+        exclude group: "org.jetbrains.kotlin"
+    }
+}
