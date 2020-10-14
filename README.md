@@ -4,11 +4,11 @@ The project is a gradle project.
 
 ## Environment
 
-|  Name  |   Description   |
-| :----: | :-------------: |
-|  JDK   | corretto-11.0.8 |
-| Kotlin |     1.4.10      |
-| gradle |      6.6.1      |
+|               Name                |                                            Description                                            |
+| :-------------------------------: | :-----------------------------------------------------------------------------------------------: |
+|                JDK                | [corretto-11.0.8](https://docs.aws.amazon.com/corretto/latest/corretto-11-ug/downloads-list.html) |
+| [Kotlin](https://kotlinlang.org/) |      [1.4.10](https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-stdlib/1.4.10)       |
+|   [gradle](https://gradle.org/)   |                                               6.6.1                                               |
 
 ## Use library
 
